@@ -3,6 +3,8 @@ image: gitpod/workspace-full
 # Commands that will run on workspace start
 tasks:
     - name: Setup, Install & Build
-      before: cd /workspace && git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git && git checkout 1.2.0
-      init: cd /workspace && nvm install 10.24.1 && nvm use &&  npm i -g yarn
-      command: yarn osd bootstrap
+      before: cd /workspace && git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git && cd OpenSearch-Dashboards && git checkout 1.2.0
+      init: cd /workspace/OpenSearch-Dashboards && nvm install 10.24.1 && nvm use &&  npm i -g yarn && brew install python@3.10 && export PYTHON=/home/linuxbrew/.linuxbrew/bin/python3.10
+      command: cd /workspace/OpenSearch-Dashboards && yarn osd bootstrap
+    - name: Run Opensearch
+      command: ./start-os.sh
