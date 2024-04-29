@@ -8,4 +8,4 @@ RUN git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git &&
     git checkout 1.2.0 && \
     nvm install 10.24.1 && \
     nvm use && \
-    npm i -g yarn && 
+    npm i -g yarn 
