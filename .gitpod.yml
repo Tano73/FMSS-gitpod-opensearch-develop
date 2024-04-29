@@ -1,2 +1,8 @@
-image:
-  file: docker/Dockerfile
+image: gitpod/workspace-full
+
+# Commands that will run on workspace start
+tasks:
+    - name: Setup, Install & Build
+      before: cd /home/gitpod/workspace && git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git && git checkout 1.2.0
+      init: cd /home/gitpod/workspace && nvm install 10.24.1 && nvm use &&  npm i -g yarn
+      command: yarn osd bootstrap
