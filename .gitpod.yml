@@ -3,7 +3,7 @@ image: gitpod/workspace-full
 # Commands that will run on workspace start
 tasks:
     - name: Setup, Install & Build
-      before: cd /workspace/FMSS-gitpod-opensearch-develop && git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git && cd OpenSearch-Dashboards && git checkout 1.2.0 && cd plugins && git clone https://github.com/opensearch-project/security-dashboards-plugin.git && cd security-dashboards-plugin && git checkout 1.2.0.1
+      before: cd /workspace/FMSS-gitpod-opensearch-develop && git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git && cd OpenSearch-Dashboards && git checkout 1.2.0 && cd plugins && git clone https://github.com/opensearch-project/security-dashboards-plugin.git && cd security-dashboards-plugin && git checkout 1.2.0.0
       init: cd /workspace/FMSS-gitpod-opensearch-develop/OpenSearch-Dashboards && nvm install 10.24.1 && nvm use &&  npm i -g yarn && brew install python@3.10 && export PYTHON=/home/linuxbrew/.linuxbrew/bin/python3.10 && cat ../osd-config.yml >> config/openseach_dashbord.
       command: cd /workspace/FMSS-gitpod-opensearch-develop/OpenSearch-Dashboards && yarn osd bootstrap
     - name: Run Opensearch
