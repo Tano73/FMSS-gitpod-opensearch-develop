@@ -9,6 +9,8 @@ tasks:
             git checkout 1.2.0 && \
             cd plugins && \
             git clone https://github.com/opensearch-project/security-dashboards-plugin.git && \
+            cd security-dashboards-plugin && \
+            git checkout 1.2.0 && \
             cd /workspace/OpenSearch-Dashboards && \
             nvm install 10.24.1 && \
             nvm use && \
