@@ -14,3 +14,4 @@ if [[ ! -d "/workspace/FMSS-gitpod-opensearch-develop/OpenSearch-Dashboards" ]];
   nvm use
   npm i -g yarn
 fi
+

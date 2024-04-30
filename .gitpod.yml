@@ -3,8 +3,8 @@ image: gitpod/workspace-full
 # Commands that will run on workspace start
 tasks:
     - name: Setup, Install & Build
-      before: /workspace/FMSS-gitpod-opensearch-develop/scripts/osd-before.sh
-      init: /workspace/FMSS-gitpod-opensearch-develop/scripts/osd-init.sh
+      before: source /workspace/FMSS-gitpod-opensearch-develop/scripts/osd-before.sh
+      init: source /workspace/FMSS-gitpod-opensearch-develop/scripts/osd-init.sh
       command: cd /workspace/FMSS-gitpod-opensearch-develop/OpenSearch-Dashboards && nvm use && yarn osd bootstrap
     - name: Run Opensearch
       command: /workspace/FMSS-gitpod-opensearch-develop/scripts/start-os.sh
