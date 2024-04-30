@@ -16,7 +16,7 @@ tasks:
             nvm use && \
             npm i -g yarn && \
             brew install python@3.10 && \
-            export PYTHON=/home/linuxbrew/.linuxbrew/bin/python3.10 && |
+            export PYTHON=/home/linuxbrew/.linuxbrew/bin/python3.10 && \
             cd /workspace/OpenSearch-Dashboards && yarn osd bootstrap
 
     - name: Run Opensearch
