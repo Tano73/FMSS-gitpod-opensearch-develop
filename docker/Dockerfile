@@ -1,11 +1,19 @@
-FROM gitpod/workspace-full-vnc
+FROM gitpod/workspace-full
 
-RUN sudo apt-get update && \
-    sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+RUN sudo apt-get update 
 
-RUN git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git && \
+USER gitpod
+
+RUN cd /workspace && \
+    git clone https://github.com/opensearch-project/OpenSearch-Dashboards.git && \
     cd OpenSearch-Dashboards && \
     git checkout 1.2.0 && \
     nvm install 10.24.1 && \
     nvm use && \
-    npm i -g yarn 
+    brew install python@3.10 && \
+    npm i -g yarn && \ 
+    cd plugins && \
+    git clone https://github.com/opensearch-project/security-dashboards-plugin.git
+
+RUN cd /workspace/OpenSearch-Dashboards && \
+    yarn osd bootstrap
